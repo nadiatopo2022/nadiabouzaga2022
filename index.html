@@ -1,0 +1,325 @@
+<html>
+<head>
+    <title>Carte des cas contaminés dans la région de Guelmim Ouad_Noun dans la première semaine de 2022</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css">
+    <link rel="stylesheet" href="leaflet.css" />
+    <script src="leaflet.js"></script>
+  
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	</head>
+	
+<body>
+    <div id="header">
+            <div>
+            <!-- empty spacer div, can be used for home page icons -->
+            </div>
+            <div id="title">
+                <h2>
+                Les cas contaminés du COVID_19 dans la région Guelmim Ouad-Noun
+                </h2>
+            </div>
+            <div>
+            <!-- empty spacer div, can be used for social media icons -->
+            </div>
+            <div>
+            <!-- empty spacer div, can be used for social media icons -->
+            </div>
+        </div>
+        <div class="wrapper">
+            <!-- The map element -->
+            <div id="map" style="border: 1px solid #ccc"></div>
+            <div id="map-slider"></div>
+                <div id="hovered">
+                    <h2>
+                        <h4>
+                            <div>
+                                <span id="event-start"></span> - <span id="event-end">Du 02 au 08 Janvier 2022</span>
+                            </div>
+                        </h4>
+
+                    </h2>
+                </div>
+               
+            </div>
+        </div>
+                                             
+</div>
+
+<div id="wrapper">
+        <center><div id="mapid" style="width: 600px; height: 600px;"></div></center>
+        <div class="leaflet-top leaflet-right"><div class="info leaflet-control">
+		<script src="provincesN.geojson"></script>
+		<script src="SliderControl.js"></script>
+            <script>
+        </script>
+        <script>
+            var sliderControl = null;
+				var mymap = L.map('mapid').setView([28.875306, -10.237276], 7);
+                
+				
+
+                function getColor(d) {
+                    return   d > 14 ? '#d7301f'  :
+                                d >9 ? '#ef6548' :
+                                      d >3? '#fdbb84'  :
+                                                    d < 2  ? ' #FFFFFF' :
+                                                             ' #FFFFFF'    ;
+
+                }
+
+                function style7(feature) {
+                    return {
+                        weight: 2,
+                        opacity: 1,
+                        color: 'black',
+                        dashArray: '3',
+                        fillOpacity: 0.7,
+                        fillColor: getColor(feature.properties.jan02)
+                    };
+                }
+				 function style6(feature) {
+                    return {
+                        weight: 2,
+                        opacity: 1,
+                        color: 'black',
+                        dashArray: '3',
+                        fillOpacity: 0.7,
+                        fillColor: getColor(feature.properties.jan03)
+                    };
+                }
+				function style5(feature) {
+                    return {
+                        weight: 2,
+                        opacity: 1,
+                        color: 'black',
+                        dashArray: '3',
+                        fillOpacity: 0.7,
+                        fillColor: getColor(feature.properties.jan04)
+                    };
+                }
+				function style4(feature) {
+                    return {
+                        weight: 2,
+                        opacity: 1,
+                        color: 'black',
+                        dashArray: '3',
+                        fillOpacity: 0.7,
+                        fillColor: getColor(feature.properties.jan05)
+                    };
+                }
+				 function style3(feature) {
+                    return {
+                        weight: 2,
+                        opacity: 1,
+                        color: 'black',
+                        dashArray: '3',
+                        fillOpacity: 0.7,
+                        fillColor: getColor(feature.properties.jan06)
+                    };
+                }
+				function style2(feature) {
+                    return {
+                        weight: 2,
+                        opacity: 1,
+                        color: 'black',
+                        dashArray: '3',
+                        fillOpacity: 0.7,
+                        fillColor: getColor(feature.properties.jan07)
+                    };
+                }
+				function style1(feature) {
+                    return {
+                        weight: 2,
+                        opacity: 1,
+                        color: 'black',
+                        dashArray: '3',
+                        fillOpacity: 0.7,
+                        fillColor: getColor(feature.properties.jan08)
+                    };
+                }
+				
+					
+                function highlightFeature(e) {
+                    var layer = e.target;
+
+                    layer.setStyle({
+                        weight: 5,
+                        color: '#666',
+                        dashArray: '',
+                        fillOpacity: 0.7
+                    });                   
+                }
+
+                var geojson1;
+
+                function resetHighlight1(e) {
+                    geojson1.resetStyle(e.target);
+                    
+                }
+				var geojson2;
+
+                function resetHighlight2(e) {
+                    geojson2.resetStyle(e.target);
+                    
+                }
+				var geojson3;
+
+                function resetHighlight3(e) {
+                    geojson3.resetStyle(e.target);
+                
+				var geojson4;  
+                }
+				  function resetHighlight4(e) {
+                    geojson4.resetStyle4(e.target);
+                    
+                }
+				var geojson5;
+
+                function resetHighlight5(e) {
+                    geojson5.resetStyle(e.target);
+                    
+                }
+				var geojson6;
+
+                function resetHighlight6(e) {
+                    geojson6.resetStyle(e.target);
+					
+                var geojson7;
+                }  function resetHighlight7(e) {
+                    geojson7.resetStyle(e.target);
+                    
+                }
+				
+	
+                function zoomToFeature(e) {
+                    mymap.fitBounds(e.target.getBounds());
+                }
+
+                function onEachFeature1(feature, layer) {
+                    layer.on({
+                        mouseover: highlightFeature,
+                        mouseout: resetHighlight1,
+                        click: zoomToFeature
+                    });
+                }
+				 function onEachFeature2(feature, layer) {
+                    layer.on({
+                        mouseover: highlightFeature,
+                        mouseout: resetHighlight2,
+                        click: zoomToFeature
+                    });
+                }
+				function onEachFeature3(feature, layer) {
+                    layer.on({
+                        mouseover: highlightFeature,
+                        mouseout: resetHighlight3,
+                        click: zoomToFeature
+                    });
+                }
+				
+				function onEachFeature4(feature, layer) {
+                    layer.on({
+                        mouseover: highlightFeature,
+                        mouseout: resetHighlight4,
+                        click: zoomToFeature
+                    });
+                }
+				 function onEachFeature5(feature, layer) {
+                    layer.on({
+                        mouseover: highlightFeature,
+                        mouseout: resetHighlight5,
+                        click: zoomToFeature
+                    });
+                }
+				function onEachFeature6(feature, layer) {
+                    layer.on({
+                        mouseover: highlightFeature,
+                        mouseout: resetHighlight6,
+                        click: zoomToFeature
+                    });
+                }                
+				function onEachFeature7(feature, layer) {
+                    layer.on({
+                        mouseover: highlightFeature,
+                        mouseout: resetHighlight7,
+                        click: zoomToFeature
+                    });
+                }
+				 
+				
+				
+                geojson1 = L.geoJson(provincesN,{style: style1, onEachFeature: onEachFeature1, time: "2/01/2022"
+                        }
+                );
+				geojson2 = L.geoJson(provincesN,{style: style2, onEachFeature: onEachFeature2, time: "3/01/2022"
+                        }
+                );
+				geojson3 = L.geoJson(provincesN,{style: style3, onEachFeature: onEachFeature3, time: "4/01/2022"
+                        }
+                );
+				geojson4 = L.geoJson(provincesN,{style: style4, onEachFeature: onEachFeature4, time: "5/01/2022"
+                        }
+                );
+				geojson5 = L.geoJson(provincesN,{style: style5, onEachFeature: onEachFeature5, time: "6/01/2022"
+                        }
+                );
+				geojson6 = L.geoJson(provincesN,{style: style6, onEachFeature: onEachFeature6, time: "7/01/2022"
+                        }
+                );
+				geojson7 = L.geoJson(provincesN,{style: style7, onEachFeature: onEachFeature7, time: "8/01/2022"
+                        }
+                );
+				
+						
+				
+				 layerGroup = L.layerGroup([geojson1, geojson2, geojson3, geojson4, geojson5, geojson6, geojson7]);
+				var sliderControl = L.control.sliderControl({layer:layerGroup, follow: true});
+				mymap.addControl(sliderControl);
+				sliderControl.startSlider();
+    
+				var legend = L.control({position: 'bottomright'});
+
+                legend.onAdd = function (mymap) {
+
+					var div = L.DomUtil.create('div', 'info legend');
+							grades = [0, 3.0,9.0,14.0];
+							labels = [];
+							
+					// parcourir nos intervalles de densité et générer une étiquette avec un carré de couleur pour chaque intervalle
+					for (var i = 0; i < grades.length; i++) {
+					div.innerHTML +='<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+					grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+				}
+
+				return div;
+
+				};
+
+				 legend.addTo(mymap);
+                 var legend = L.control({position: 'bottomright'});
+				
+            </script>
+            <style>
+                .legend {
+                    line-height: 18px;
+                    color: #555;
+                }
+                .legend i {
+                    width: 18px;
+                    height: 18px;
+                    float: left;
+                    margin-right: 8px;
+                    opacity: 0.7;
+                }
+            </style>
+
+
+</body>
+</html>
